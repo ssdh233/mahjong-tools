@@ -35,7 +35,7 @@ function App({ }) {
           "log": [x]
         }))}`;
         return <div key={i}>
-          <a href={url}>{x[0][0] < 4 ? "東" : "南"}{(x[0][0] + 1) % 4}局 {x[0][1]}本場</a>
+          <a href={url}>{x[0][0] < 4 ? "東" : "南"}{(x[0][0] < 4 ? x[0][0] + 1 : x[0][0] - 3)}局 {x[0][1]}本場</a>
           <input value={url} onFocus={event => { event.target.select(); }}></input>
         </div>
       })}
