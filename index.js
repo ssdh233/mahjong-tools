@@ -25,7 +25,7 @@ function App({ }) {
       {haifuData?.log.map((x, i) => {
         if (x[16][2]) {
           x[16][2] = x[16][2].slice(0, 4);
-          x[16][2][3] = x[16][2][3].replace("Haneman ", "跳満").replace("Mangan ", "満貫")
+          x[16][2][3] = x[16][2][3].replace("Haneman ", "跳満").replace("Mangan ", "満貫").replace("Baiman ", "倍満")
         }
         console.log(x[16][2]);
         const url = `https://tenhou.net/6/#json=${encodeURIComponent(JSON.stringify({
