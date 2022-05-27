@@ -25,7 +25,7 @@ function App({ }) {
       {haifuData?.log.map((x, i) => {
         if (x[16][2]) {
           x[16][2] = x[16][2].slice(0, 4);
-          x[16][2][3] = x[16][2][3].replace("Haneman ", "跳満").replace("Mangan ", "満貫").replace("Baiman ", "倍満")
+          x[16][2][3] = x[16][2][3].replace("Haneman ", "跳満").replace("Mangan ", "満貫").replace("Baiman ", "倍満").replace("Sanbaiman ", "三倍満")
         }
         console.log(x[16][2]);
         const url = `https://tenhou.net/6/#json=${encodeURIComponent(JSON.stringify({
@@ -35,7 +35,7 @@ function App({ }) {
           "log": [x]
         }))}`;
         return <div key={i}>
-          <a href={url}>{x[0][0] < 4 ? "東" : "南"}{(x[0][0] < 4 ? x[0][0] + 1 : x[0][0] - 3)}局 {x[0][1]}本場</a>
+          <a href={url}>{x[0][0] < 8 ? (x[0][0] < 4 ? "東" : "南") : "西"}{((x[0][0] + 1) % 4 || 4)}局 {x[0][1]}本場</a>
           <input value={url} onFocus={event => { event.target.select(); }}></input>
         </div>
       })}
